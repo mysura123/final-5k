@@ -1,0 +1,12 @@
+- name: Elastic Beats Installation
+  hosts: LinuxServers
+  roles: 
+    - role: elastic.beats
+  vars:
+    beats_version: 7.17.0
+    beat: metricbeat
+    beat_conf:
+      metric.modules:
+      - system
+      - kafka
+      enabled: true
